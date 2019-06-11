@@ -1,5 +1,5 @@
 -- Création du schéma (Décommenter la ligne pour drop le schéma si besoin)
-DROP SCHEMA wimw;
+--DROP SCHEMA wimw;
 CREATE DATABASE IF NOT EXISTS wimw character SET utf8 collate utf8_unicode_ci;
 use wimw;
 -- Ajout d'un user & ses privilèges

@@ -1,0 +1,1 @@
+vie privée et confidentialité
