@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Utilities;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
     public function view()
     {
-        return view('about');
+        $prov = Utilities::getRandomProverb();
+        return view('about', compact('prov'));
     }
 }

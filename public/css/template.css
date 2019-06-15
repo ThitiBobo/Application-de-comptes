@@ -1,0 +1,169 @@
+.topHeader
+{
+    padding-top:1%;
+    background: -webkit-linear-gradient(left, rgba(246,246,246,1) 0%, rgb(255, 203, 205) 100%);
+}
+
+.bold
+{
+    font-weight:bold;
+}
+body
+{
+    margin-bottom:50px;
+}
+
+.logo
+{
+    text-align: right;
+    float: right;
+    height:180px;
+}
+
+#footer
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+
+.footerLink
+{
+    margin-left:1%;
+    margin-bottom: 0;
+    margin-top:0;
+    font-weight: bold;
+}
+
+.copyrightText
+{
+    text-align:center;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+#container
+{
+    width:100%;
+    background: -webkit-linear-gradient(top, rgba(246,246,246,1) 0%, rgb(255, 203, 205) 100%);
+}
+
+#left
+{
+    float: left;
+    width: 33%;
+    display:inline-block;
+}
+
+#right
+{
+    float:right;width:33%;
+    display:inline-block
+}
+
+#center
+{
+    display:inline-block;
+    margin:0 auto;width:33%;
+}
+
+.gitText
+{
+    padding-top:2%;
+    width: 90px;
+    height:auto;
+    margin-left:5px;
+    float:right;
+    margin-right:1%;
+    margin-bottom:5%;
+}
+
+.gitLogo
+{
+    width: 45px;
+    height:auto;
+    float:right;
+    margin-bottom:5%;
+    text-align:center;
+}
+
+
+.blockImg
+{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width:100px;
+    height:auto;
+    margin-bottom:2%;
+}
+
+.blockTitle
+{
+    margin-top:30px;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.blockText
+{
+
+}
+
+.blockText p
+{
+    margin-left: auto;
+    margin-right: auto;
+    border:solid;
+    width:400px;
+}
+
+
+p
+{
+    margin-left:1%;
+}
+
+h1
+{
+    margin-left:1%;
+}
+
+h2
+{
+    margin-left:1%;
+}
+
+h3
+{
+    margin-left:1%;
+}
+
+.sourceProverbe
+{
+    margin-left:1%;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+}

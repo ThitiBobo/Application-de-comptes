@@ -44,6 +44,13 @@ Route::get('/wimw/add-category', 'AddCategoryController@view');
 
 Route::post('/wimw/add-category', 'AddCategoryController@post');
 
+Route::get('/wimw/add-spending', 'AddSpendingController@view');
+
+Route::get('/wimw/budget', 'BudgetController@view');
+
+
+Route::post('/wimw/add-spending', 'AddSpendingController@post');
+
 
 
 

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Utilities;
 use Illuminate\Http\Request;
 
 class PrivacyController extends Controller
 {
     public function view()
     {
-        return view('privacy');
+        $prov = Utilities::getRandomProverb();
+        return view('privacy', compact('prov'));
     }
 }

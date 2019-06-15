@@ -6,84 +6,81 @@
     {!! Html::style('css/template.css') !!}
     {!! Html::style('css/bootstrap.min.css') !!}
     <title> @yield('title')</title>
+    <link rel="icon" href="/../Application-de-comptes/public/favicon.ico" />
 </head>
+
 <body>
-
-<div class="topHeader">
-    <h1 class="pageTitle"> Commencez à gérer vos dépenses !</h1>
-    <p class="blockquote">" ($monProverbeEconomie) "</p>
-    <i class="sourceProverbe"> ($source) ($dateProv)</i>
+<div id="page-container">
+    <div id="content-wrap">
 
 
-    <h2 class="blockTitle">
-        Pourquoi utiliser What's in my Wallet ?
-    </h2>
-
-    <h2 class="blockTitle">
-        Qu'est-ce que ça m'apportera ?
-    </h2>
-
-    <h2 class="blockTitle">
-        Et mes données dans tout ça ?
-    </h2>
-    <p>
-        Nous traitons vos donénes avec soin.
-        Vous disposez, comme la loi le stipule,
-        d'un droit de rétractation sur l'ensemble
-        de vos données ; elles vous appartiennent
-        avant tout.
-    </p>
-    <p>
-        N'hésitez pas à utiliser le
-        <a href="{{url('/wimw/contact')}}">
-            formulaire de contact
+<!-- le header -->
+<header>
+    <div class="topHeader">
+        <a href="{{ url('/wimw') }}">
+            <img class="logo" src="/../web/Application-de-comptes/public/img/wimw.png">
         </a>
-        pour faire exercer vos droits ou pour toute
-        question relative à ce sujet.
-    </p>
+        <div class="w-100 p-3">
+            <h1 class="pageTitle"> Commencez à gérer vos dépenses !</h1>
+            <p class="prov">" @yield('proverbe') "</p>
+            <i class="sourceProverbe"> @yield('source') @yield('dateProverbe') </i>
+        </div>
+    </div>
+</header>
 
-    <p> Consultez la rubrique "
-    <a class="link" href="{{url('/wimw/privacy')}}">
-        Confidentialité
-    </a>
-        " pour plus d'informations à ce sujet !
-    </p>
+<!-- le contenu de la page -->
 
-
-    <h2 class="link">
-        <a href="{{url('/register')}}">
-            N'attendez plus ! Pour créer un compte, c'est ici
-        </a>
-    </h2>
-
-    <i>
-        <a href="{{url('/login')}}">
-            Déjà inscrit ? Identifiez-vous
-        </a>
-    </i>
-
-
-</div>
-
-    <!-- gestion login (à encapsuler dans une div) -->
-    @if (Route::has('login'))
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-    @endif
-
-    <!-- le contenu de la page -->
     @yield('content')
+    </div>
+<footer id="footer">
+    <div id="container">
+        <div id="left">
+            <p class="footerLink">
+                <a  href="{{ url('/wimw/about') }}">
+                    À propos
+                </a>
+            </p>
+            <p class="footerLink">
+                <a href="{{ url('/wimw/help') }}">
+                    Aides & FAQ
+                </a>
+            </p>
+            <p class="footerLink">
+                <a href="{{ url('/wimw/legal-terms') }}">
+                    Mentions légales
+                </a>
+            </p>
+            <p class="footerLink">
+                <a href="{{ url('/wimw/privacy') }}">
+                    Confidentialité
+                </a>
+            </p>
+        </div>
+        <div id="right">
+            <br />
+            <a href="https://github.com/ThitiBobo/Application-de-comptes">
+                <img class="gitText" src="/../web/Application-de-comptes/public/img/github-text.png">
+                <img class="gitLogo" src="/../web/Application-de-comptes/public/img/github-logo.png">
+            </a>
 
-    <footer class="footer">
-
+        </div>
+        <div id="center">
+            <br />
+            <p class="copyrightText">
+                What's in my wallet © 2019
+                <br/>
+                Tous droits réservés
+            </p>
+            <p class="copyrightText">
+                Dorian Naaji et Thibaut Delplanque - <a href="{{ url('/wimw/contact') }}"> Contact </a>
+            </p>
+        </div>
+    </div>
     </footer>
-<!-- scripts de js ICI -->
+</div>
+<!-- scripts de js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

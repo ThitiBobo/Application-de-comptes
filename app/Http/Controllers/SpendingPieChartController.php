@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\DAOs\NaturePaiementDAO;
+use App\Http\Utils\Utilities;
+use App\Models\Nature_paiement;
 use Illuminate\Http\Request;
 
 class SpendingPieChartController extends Controller
@@ -23,6 +26,8 @@ class SpendingPieChartController extends Controller
      */
     public function dashboard()
     {
-        return view('spendingPieChart');
+        $prov = Utilities::getRandomProverb();
+
+        return view('spendingPieChart', compact('prov'));
     }
 }

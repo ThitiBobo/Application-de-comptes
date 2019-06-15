@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Utilities;
 use Illuminate\Http\Request;
 
 class SpendingListController extends Controller
@@ -19,6 +20,7 @@ class SpendingListController extends Controller
 
     public function view()
     {
-        return view('spendingList');
+        $prov = Utilities::getRandomProverb();
+        return view('spendingList', compact('prov'));
     }
 }

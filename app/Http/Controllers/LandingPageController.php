@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Utils\Utilities;
 
 class LandingPageController extends Controller
 {
     public function view()
     {
-        return view('landingPage');
+        $prov = Utilities::getRandomProverb();
+        return view('landingPage', compact('prov'));
     }
 }
