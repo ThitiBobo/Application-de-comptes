@@ -51,6 +51,23 @@ class CategorieDAO extends DAO
         return $categories;
     }
 
+    public function getUsedCategoriesByUserWithNameAsKey()
+    {
+        $user = auth()->user();
+        $userID = $user->getAuthIdentifier();
+
+        $catBD = DB::select(DB::raw(
+            'SELECT * FROM categorie WHERE id_categorie IN (SELECT DISTINCT fk_categorie FROM depense WHERE fk_user = '. $userID. ')'));
+
+        $categories = array();
+        foreach($catBD as $cat)
+        {
+            $nomcat = $cat->nom;
+            $categories[$nomcat] = $this->createModelObject($cat);
+        }
+        return $categories;
+    }
+
     public function insertCustomCategory(Categorie $cat)
     {
         // on insérer la catégorie dans la table catégorie

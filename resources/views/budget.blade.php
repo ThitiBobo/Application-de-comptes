@@ -46,8 +46,21 @@
 
     <h2>Votre budget</h2>
 
+    <br />
+
     @foreach($depensesParCategorie as $key => $value)
-        <h3> {{ \App\Http\Utils\Utilities::cleanString($key) }}</h3>
+        <h3> {{ $key }}</h3>
+        <p>
+            <ul>
+            <li>
+                Vous avez dépensé <span class="text-danger"> {{ $value }} € </span> dans cette catégorie.
+            </li>
+            <li>
+                Votre plafond pour cette catégorie est de <span class="text-info">{{ $usedCategories[$key]->getPlafond() }} €</span>
+            </li>
+            </ul>
+
+        </p>
     @endforeach
 
     <br />

@@ -25,9 +25,11 @@ class BudgetController extends Controller
     public function view()
     {
         $prov = Utilities::getRandomProverb();
+        $categoriesDAO = new CategorieDAO();
+        $usedCategories = $categoriesDAO->getUsedCategoriesByUserWithNameAsKey();
         $depensesDAO = new DepenseDAO();
         $depenses = $depensesDAO->getAllDepensesOfUser();
         $depensesParCategorie = SpendingPieChartController::createArrayDepenseCat($depenses);
-        return view('budget', compact('prov', 'depensesParCategorie'));
+        return view('budget', compact('prov', 'depensesParCategorie', 'usedCategories'));
     }
 }
