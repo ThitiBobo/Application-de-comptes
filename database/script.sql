@@ -1,10 +1,4 @@
 -- Création du schéma (Décommenter la ligne pour drop le schéma si besoin)
---DROP SCHEMA wimw;
-CREATE DATABASE IF NOT EXISTS wimw character SET utf8 collate utf8_unicode_ci;
-use wimw;
--- Ajout d'un user & ses privilèges
-GRANT ALL PRIVILEGES ON wimw.* TO 'wimw_user'@'localhost' IDENTIFIED BY 'pw';
-
 ##############################################################
 ## Création des tables d'authentification propres à Laravel ##
 ##############################################################

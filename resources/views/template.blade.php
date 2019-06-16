@@ -6,7 +6,7 @@
     {!! Html::style('css/template.css') !!}
     {!! Html::style('css/bootstrap.min.css') !!}
     <title> @yield('title')</title>
-    <link rel="icon" href="/../Application-de-comptes/public/favicon.ico" />
+    <link rel="icon" href="/../img/favicon.ico" />
 </head>
 
 <body>
@@ -15,10 +15,9 @@
 
 
 <!-- le header -->
-<header>
     <div class="topHeader">
         <a href="{{ url('/wimw') }}">
-            <img class="logo" src="/../web/Application-de-comptes/public/img/wimw.png">
+            <img class="logo" src="/../img/wimw.png">
         </a>
         <div class="w-100 p-3">
             <h1 class="pageTitle"> Commencez à gérer vos dépenses !</h1>
@@ -26,8 +25,35 @@
             <i class="sourceProverbe"> @yield('source') @yield('dateProverbe') </i>
         </div>
     </div>
+
 </header>
 
+<br />
+<br />
+<div style="float:right; margin-right:5%;">
+    @if (Route::has('login'))
+        @auth
+            <a href="{{ url('/wimw/overview') }}">Mon compte</a>
+            <br />
+                <a href="{{ url('/logout') }}"> Se déconnecter </a>
+        @else
+            <i>
+                <a href="{{url('/login')}}">
+                    Se connecter
+                </a>
+            </i>
+
+            @if (Route::has('register'))
+            <br />
+                    <a href="{{url('/register')}}">
+                        Créer un compte
+                    </a>
+            @endif		
+        @endauth
+    @endif
+</div>
+
+<br />
 <!-- le contenu de la page -->
 
     @yield('content')
@@ -59,8 +85,8 @@
         <div id="right">
             <br />
             <a href="https://github.com/ThitiBobo/Application-de-comptes">
-                <img class="gitText" src="/../web/Application-de-comptes/public/img/github-text.png">
-                <img class="gitLogo" src="/../web/Application-de-comptes/public/img/github-logo.png">
+                <img class="gitText" src="/../img/github-text.png">
+                <img class="gitLogo" src="/../img/github-logo.png">
             </a>
 
         </div>

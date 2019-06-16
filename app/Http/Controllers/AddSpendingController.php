@@ -29,7 +29,7 @@ class AddSpendingController extends Controller
         $categoriesDAO = new CategorieDAO();
         $naturesPaiementDAO = new NaturePaiementDAO();
         $natures = $naturesPaiementDAO->getAllNaturePaiement();
-        $categories = $categoriesDAO->getAllCategories();
+        $categories = $categoriesDAO->getAllUserCategories();
         return view('addSpending', compact('prov', 'natures', 'categories'));
     }
 

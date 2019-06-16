@@ -23,6 +23,27 @@ class CategorieDAO extends DAO
         return $categories;
     }
 
+    public function getAllUserCategories()
+    {
+        $user = auth()->user();
+        $userID = $user->getAuthIdentifier();
+
+        $catBD = DB::select(DB::raw(
+            'SELECT * FROM categorie
+            where id_categorie IN(SELECT fk_categorie FROM categorie_depense)
+            OR id_categorie IN(SELECT fk_categorie FROM categorie_custom
+            INNER JOIN categorie_custom_TO_user ON categorie_custom_TO_user.fk_fk_categorie_custom = categorie_custom.fk_categorie WHERE categorie_custom_TO_user.fk_user = '. $userID .');'));
+
+        $categories = array();
+
+        foreach($catBD as $cat)
+        {
+            $idCat = $cat->id_categorie;
+            $categories[$idCat] = $this->createModelObject($cat);
+        }
+        return $categories;
+    }
+
     public function getCategorie($id)
     {
         return $this

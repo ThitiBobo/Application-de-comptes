@@ -15,6 +15,7 @@
 /** Les routes d'authentification **/
 Auth::routes();
 
+Route::get('/', 'LandingPageController@view');
 
 /** Pages ne nécessitant pas d'authentification **/
 
@@ -57,11 +58,4 @@ Route::get('/wimw/budget', 'BudgetController@view');
 Route::post('/wimw/add-spending', 'AddSpendingController@post');
 
 
-
-
-/** tests **/
-
-Route::get('/template', function()
-{
-    return view('template');
-});
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

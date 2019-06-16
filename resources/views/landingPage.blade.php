@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('title')
-    Aide et FAQ
+    Accueil
 @endsection
 
 @section('proverbe')
@@ -21,7 +21,7 @@
 @section('content')
 
     <h2 class="blockTitle">
-        <img class="blockImg" src="img/help.svg">
+        <img class="blockImg" src="/../img/help.svg">
         Pourquoi utiliser What's in my Wallet ?
     </h2>
     <div class="text-center blockText">
@@ -49,7 +49,7 @@
         </p>
     </div>
     <h2 class="blockTitle">
-        <img class="blockImg" src="img/euro.svg">
+        <img class="blockImg" src="/../img/euro.svg">
         Qu'est-ce que ça m'apportera ?
     </h2>
     <div class="text-center blockText">
@@ -68,7 +68,7 @@
         </p>
     </div>
     <h2 class="blockTitle">
-        <img class="blockImg" src="img/fingerprint.svg">
+        <img class="blockImg" src="/../img/fingerprint.svg">
         Et mes données dans tout ça ?
     </h2>
     <div class="text-center blockText">
@@ -102,8 +102,13 @@
     <!-- gestion login (à encapsuler dans une div) -->
     @if (Route::has('login'))
         @auth
+            <h1 class="text-center">
+                <a href="{{ url('/wimw/overview') }}">Vue d'ensemble (accéder à votre espace)</a>
+            </h1>
             <p class="text-center">
-                <a href="{{ url('/wimw/overview') }}">Vue d'ensemble</a>
+                <i>
+                    <a href="{{ url('/logout') }}"> Se déconnecter </a>
+                </i>
             </p>
         @else
             <p class="text-center">

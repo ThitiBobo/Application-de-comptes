@@ -12,7 +12,9 @@ class DepenseDAO extends DAO
 
     public function getAllDepensesOfUser() : array
     {
-        return $this->createArrayDepenses(DB::table('depense')->get());
+        $user = auth()->user();
+        $userId = $user->getAuthIdentifier();
+        return $this->createArrayDepenses(DB::table('depense')->where('fk_user', '=', $userId)->get());
     }
 
 
