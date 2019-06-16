@@ -4,7 +4,9 @@
 namespace App\Models;
 
 
-class Nature_paiement
+use Illuminate\Database\Eloquent\Model;
+
+class Nature_paiement extends Model
 {
     private $id_nature_paiement;
     private $nom;

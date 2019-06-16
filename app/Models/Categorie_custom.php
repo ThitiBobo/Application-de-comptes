@@ -4,7 +4,9 @@
 namespace App\Models;
 
 
-class Categorie_custom
+use Illuminate\Database\Eloquent\Model;
+
+class Categorie_custom extends Model
 {
 
 }

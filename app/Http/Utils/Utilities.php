@@ -15,4 +15,9 @@ class Utilities
         $dao = new ProverbDAO();
         return $dao->getRandomProverb();
     }
+
+    public static function cleanString($str)
+    {
+        return str_replace("&", "et", $str);
+    }
 }

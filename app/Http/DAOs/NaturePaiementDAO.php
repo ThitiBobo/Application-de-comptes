@@ -22,6 +22,17 @@ class NaturePaiementDAO extends DAO
         return $natures;
     }
 
+    public function getNaturePaiement($id)
+    {
+        return $this
+            ->createModelObject
+            (
+                DB::table('nature_paiement')
+                ->where('id_nature_paiement', '=', $id)
+                ->first()
+            );
+    }
+
     protected function createModelObject(\stdClass $object)
     {
         $naturePaiement = new Nature_paiement();

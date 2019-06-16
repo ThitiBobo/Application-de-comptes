@@ -4,12 +4,14 @@
 namespace App\Models;
 
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class Proverb, retrieving a random proverb from
  * the database
  * @package App\Utils
  */
-class Proverb
+class Proverb extends Model
 {
     private $id_proverbe;
     private $proverbe;

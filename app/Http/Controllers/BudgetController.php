@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\DAOs\CategorieDAO;
+use App\Http\DAOs\DepenseDAO;
 use App\Http\Utils\Utilities;
+use App\Models\Depense;
 use Illuminate\Http\Request;
 
 class BudgetController extends Controller
@@ -22,6 +25,9 @@ class BudgetController extends Controller
     public function view()
     {
         $prov = Utilities::getRandomProverb();
-        return view('budget', compact('prov'));
+        $depensesDAO = new DepenseDAO();
+        $depenses = $depensesDAO->getAllDepensesOfUser();
+        $depensesParCategorie = SpendingPieChartController::createArrayDepenseCat($depenses);
+        return view('budget', compact('prov', 'depensesParCategorie'));
     }
 }

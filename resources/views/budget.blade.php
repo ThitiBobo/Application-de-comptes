@@ -45,7 +45,10 @@
     <br/>
 
     <h2>Votre budget</h2>
-    <h2> PAGE EN CONSTRUCTION...</h2>
+
+    @foreach($depensesParCategorie as $key => $value)
+        <h3> {{ \App\Http\Utils\Utilities::cleanString($key) }}</h3>
+    @endforeach
 
     <br />
 

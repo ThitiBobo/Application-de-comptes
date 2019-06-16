@@ -4,7 +4,9 @@
 namespace App\Models;
 
 
-class Categorie_depense
+use Illuminate\Database\Eloquent\Model;
+
+class Categorie_depense extends Model
 {
 
 }

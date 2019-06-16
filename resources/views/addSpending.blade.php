@@ -21,11 +21,11 @@
 @section('content')
     <nav class="navbar navbar-light">
         <form class="form-inline">
-            <button class="btn btn-sm btn-outline-secondary" type="button"><a href="{{ url('/wimw/overview') }}">Vue d'ensemble</a></button>
+            <a href="{{ url('/wimw/overview') }}"><button class="btn btn-sm btn-outline-secondary" type="button">Vue d'ensemble</button></a>
             <span> &nbsp; &nbsp;  </span>
-            <button class="btn btn-sm btn-outline-secondary" type="button"><a href="{{ url('/wimw/list') }}">Liste des dépenses</a></button>
+            <a href="{{ url('/wimw/list') }}"><button class="btn btn-sm btn-outline-secondary" type="button">Liste des dépenses</button></a>
             <span> &nbsp; &nbsp;  </span>
-            <button class="btn btn-sm btn-outline-secondary" type="button"><a href="{{ url('/wimw/budget') }}">Budget</a></button>
+            <a href="{{ url('/wimw/budget') }}"><button class="btn btn-sm btn-outline-secondary" type="button">Budget</button></a>
             <span> &nbsp; &nbsp;  </span>
             <div class="dropdown show">
                 <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,7 +55,7 @@
             </div>
             <!-- le formulaire -->
             <div class="card-body">
-                {!! Form::open(['url' => 'add-spending']) !!}
+                {!! Form::open(['url' => 'wimw/add-spending']) !!}
 
                 <!-- date dépense (date_depense) -->
                 <div class="form-group">
@@ -73,7 +73,8 @@
                      [
                         'class' => 'form-control',
                         'placeholder' => 'Montant de la dépense en €',
-                        'required' => 'required'
+                        'required' => 'required',
+                        'min' => '1'
                      ]) !!}
                 </div>
 
@@ -84,7 +85,7 @@
                          */
                         ?>
                         {{  Form::label('catégorie', 'Catégorie') }}
-                        <select id="categorie" name="categorie">
+                        <select  name="categorie">
                             @foreach ($categories as $key => $cat)
                                 <option selected value="{!! $key !!}"> {!! $cat->getNom() !!}</option>
                             @endforeach
@@ -97,7 +98,7 @@
                          */
                         ?>
                         {{  Form::label('nature', 'Nature paiement') }}
-                        <select id="nature_paiement" name="nature_paiement">
+                        <select name="nature_paiement">
                             @foreach ($natures as $key => $nat)
                                 <option value="{!! $key !!}"> {!! $nat->getNom() !!}</option>
                             @endforeach

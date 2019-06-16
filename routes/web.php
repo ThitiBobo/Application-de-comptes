@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function ()
-{
-    return view('welcome');
-});
 
 /** Les routes d'authentification **/
 Auth::routes();
@@ -25,6 +21,7 @@ Auth::routes();
 Route::get('/wimw', 'LandingPageController@view');
 
 Route::get('/wimw/contact', 'ContactController@view');
+Route::post('/wimw/contact', 'ContactController@post');
 
 Route::get('/wimw/about', 'AboutController@view');
 
@@ -37,8 +34,16 @@ Route::get('/wimw/privacy', 'PrivacyController@view');
 /** Pages nécessitant une authentification **/
 
 Route::get('/wimw/overview', 'SpendingPieChartController@dashboard');
+Route::get('/wimw/overview-percent', 'SpendingPieChartController@dashboardPercents');
+Route::get('/wimw/overview-month', 'SpendingPieChartController@dashboardMonth');
+Route::get('/wimw/overview-year', 'SpendingPieChartController@dashboardYear');
 
-Route::get('/wimw/list', 'SpendingListController@view');
+
+Route::get('/wimw/list', 'SpendingListController@basicView');
+Route::get('/wimw/list-ascending', 'SpendingListController@ascendingView');
+Route::get('/wimw/list-descending', 'SpendingListController@descendingView');
+Route::get('/wimw/list-this-month', 'SpendingListController@thisMonthView');
+Route::get('/wimw/list-this-year', 'SpendingListController@thisYearView');
 
 Route::get('/wimw/add-category', 'AddCategoryController@view');
 

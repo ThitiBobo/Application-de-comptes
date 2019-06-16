@@ -4,7 +4,9 @@
 namespace App\Models;
 
 
-class Categorie
+use Illuminate\Database\Eloquent\Model;
+
+class Categorie extends Model
 {
     private $id_categorie;
     private $nom;
